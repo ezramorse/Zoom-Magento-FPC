@@ -1,10 +1,11 @@
  * EZAPPS Zoom Full-Page Cache for Magento
  *
- * @category   Ezapps
- * @package    Ezapps_Zoom
- * @author     Ezra Morse (http://www.ezapps.ca/)
- * @contact    Ezra Morse <ezapps.software@gmail.com>
- * @license:   EPL 1.0. (Please credit the original author in all derivatives and release core fixes to the public)
+ * @category		Ezapps
+ * @package		Ezapps_Zoom
+ * @author		Ezra Morse (http://www.ezapps.ca/)
+ * @contact		Ezra Morse <ezapps.software@gmail.com>
+ * @license		EPL 1.0 (http://www.eclipse.org/legal/epl-v10.html) 
+ * @instructions	Please credit the original author in all derivatives and release core fixes to the public
 
 
 Installation:
