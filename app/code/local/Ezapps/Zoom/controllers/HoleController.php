@@ -22,15 +22,9 @@ class Ezapps_Zoom_HoleController extends Mage_Core_Controller_Front_Action
 
 		$session = Mage::getSingleton('customer/session');
 
-		if ($this->getRequest()->isPost())
-			$data = json_decode(Mage::helper('ezzoom')->decompress($this->getRequest()->getPost('holes')), true);
-		else {
-			$data = json_decode(Mage::helper('ezzoom')->decompress($this->getRequest()->getParam('holes')), true);
-			$this->getResponse()->setRedirect($session->getLastEzzoomUrl() );
-			return;
-		}
+		$data = json_decode(Mage::helper('ezzoom')->decompress($this->getRequest()->getParam('holes')), true);
 
-		$page = Mage::getModel('ezzoom/page')->load($this->getRequest()->getPost('id'));
+		$page = Mage::getModel('ezzoom/page')->load($this->getRequest()->getParam('id'));
 
 		if ($page->getFilename() != '') {
 			$page->setHits($page->getHits()+1)->save();
@@ -140,7 +134,8 @@ class Ezapps_Zoom_HoleController extends Mage_Core_Controller_Front_Action
 
 		}
 
-		$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+		$this->getResponse()->setBody($this->getRequest()->getParam('callback') . '(' . Mage::helper('core')->jsonEncode($result) . ')');
+		$this->getResponse()->setHeader('content-type', 'application/x-javascript', true); 
 
         }
 }

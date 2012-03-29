@@ -28,15 +28,14 @@ $domain           = $this->getDomain();
 
 document.observe("dom:loaded", function() {
 
-	new Ajax.Request('<?php echo $this->getUrl('', array('_secure'=> Mage::app()->getStore()->isCurrentlySecure())) . $url ?>', {
-		method: 'post',
+	new Ajax.JSONRequest('<?php echo $this->getUrl('', array('_secure'=> true)) . $url ?>', {
 		parameters: {ajax: true,
 			     id:    '<?php echo $this->getPageTag() ?>',
 			     key:   '<?php echo $this->getFileTag() ?>',
 			     holes: '<?php echo $state ?>'
 		},
-		onComplete: function(transport, json) {
-			var json = transport.responseText.evalJSON();
+		onComplete: function(transport) {
+			var json = transport.responseJSON;
 
                         for(var i=0;i<json.fill.length;i++){
                           var obj = json.fill[i];
