@@ -1,0 +1,405 @@
+<config>
+	<sections>
+		 <ezzoom_general translate="label" module="ezzoom">
+                        <label>Zoom</label>
+                        <tab>eztools</tab>
+                        <sort_order>10</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <groups>
+                                <basicsettings translate="label">
+                                        <label>Basic Settings</label>
+                                        <frontend_type>text</frontend_type>
+					<comment><![CDATA[
+						<div style="position:relative"><div style="position:absolute; right:5px">
+						<a href="http://www.ezapps.ca/">
+						<img src="//www.ezapps.ca/media/ezapps_small_logo.png" border="0" /><br/>
+						<img src="//www.ezapps.ca/media/zoom_small_logo.png" border="0" />
+						</a>
+						</div></div>
+					]]></comment>
+                                        <sort_order>10</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+                                        <fields>
+                                                <active translate="label">
+                                                        <label>Enabled</label>
+							<comment>Global Zoom controller</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>0</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </active>
+                                                <gzip translate="label">
+                                                        <label>GZIP Level</label>
+							<comment>Compresses the cached page in gzip format</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_gzip</source_model>
+							<backend_model>ezzoom/system_config_backend_gzip</backend_model>
+                                                        <sort_order>8</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </gzip>
+                                                <gzip_copy translate="label">
+                                                        <label>Save GZIP As A Copy</label>
+							<comment>Produces a separate copy for older browers</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>10</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </gzip_copy>
+                                                <normalize_urls translate="label">
+                                                        <label>Normalize Category URLs</label>
+							<comment>Reduces misses by passing toolbar state</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>12</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </normalize_urls>
+                                                <friendly_urls translate="label">
+                                                        <label>Rewrite Category URLs</label>
+							<comment>Eliminate get variables from categories</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>14</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </friendly_urls>
+					</fields>
+				</basicsettings>
+                                <cache_control translate="label">
+                                        <label>Page Caching Controls</label>
+                                        <frontend_type>text</frontend_type>
+                                        <sort_order>25</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+                                        <fields>
+                                                <cache_ttl translate="label">
+                                                        <label>Global Cache TTL</label>
+							<comment>A value of "0" disables TTL invalidation.</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>0</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </cache_ttl>
+                                                <cache_product_ttl translate="label">
+                                                        <label>Product Cache TTL</label>
+							<comment>A value of "0" disables TTL invalidation.</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>1</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </cache_product_ttl>
+                                                <cache_review_ttl translate="label">
+                                                        <label>Review Cache TTL</label>
+							<comment>A value of "0" disables TTL invalidation.</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>2</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </cache_review_ttl>
+                                                <cache_category_ttl translate="label">
+                                                        <label>Category Cache TTL</label>
+							<comment>A value of "0" disables TTL invalidation.</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>3</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </cache_category_ttl>
+                                                <cache_cms_ttl translate="label">
+                                                        <label>CMS Cache TTL</label>
+							<comment>A value of "0" disables TTL invalidation.</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>3</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </cache_cms_ttl>
+                                                <zoom_product translate="label">
+                                                        <label>Cache Products</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>5</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_product>
+                                                <zoom_review translate="label">
+                                                        <label>Cache Product Reviews</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>6</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_review>
+                                                <zoom_category translate="label">
+                                                        <label>Cache Categories</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>7</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_category>
+                                                <zoom_cms translate="label">
+                                                        <label>Cache CMS</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>8</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_cms>
+                                                <zoom_include_modules translate="label">
+                                                        <label>Cache Additional Modules</label>
+							<comment><![CDATA[Example: <b>wantedmodule_somecontroller_(.*)</b>]]></comment>
+                                                        <frontend_model>ezzoom/adminhtml_form_field_regex</frontend_model>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+							<sort_order>14</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_include_modules>
+                                                <zoom_include_uri translate="label">
+                                                        <label>Cache Matching URIs</label>
+							<comment><![CDATA[Example: <b>/includedirectory/(.*).html</b>]]></comment>
+                                                        <frontend_model>ezzoom/adminhtml_form_field_regex</frontend_model>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                                                        <sort_order>16</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_include_uri>
+                                                <zoom_exclude_modules translate="label">
+                                                        <label>Exclude Specific Modules</label>
+							<comment><![CDATA[Example: <b>excludemodule_(.*)</b>]]></comment>
+                                                        <frontend_model>ezzoom/adminhtml_form_field_regex</frontend_model>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+							<sort_order>24</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_exclude_modules>
+                                                <zoom_exclude_uri translate="label">
+                                                        <label>Exclude Matching URIs</label>
+							<comment><![CDATA[Example: <b>/Some-Pages-To-Ignore(.*).html</b>]]></comment>
+                                                        <frontend_model>ezzoom/adminhtml_form_field_regex</frontend_model>
+							<backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                                                        <sort_order>26</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </zoom_exclude_uri>
+					</fields>
+				</cache_control>
+                                <holepunch translate="label">
+                                        <label>Hole Punching</label>
+                                        <frontend_type>text</frontend_type>
+                                        <sort_order>50</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+					<comment><![CDATA[<div style='border: 2px dotted #aaaacc;padding:4px;margin:4px;background-color:white'>
+			    				  Many blocks are rendered uniquely for customers (like their cart summary). <b>"Hole-Punching"</b> removes these personalized areas from a
+							  cached file and creates entry-points for re-insertion.
+							  <ul style="padding:5px"><li><b>Auto:</b> The block will only be stripped out if it is detected to be non-empty.</li>
+							  <li><b>On:</b> Always strip the block and create an entry point.<li>
+							  <li><b>Off:</b> Never attempt to hole-punch the block. Use this for inactive blocks or for those that are not personalized</li></ul></div>
+						 ]]></comment>
+                                        <fields>
+                                                <punch_cart translate="label">
+                                                        <label>Cart Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>2</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_cart>
+                                                <punch_compare translate="label">
+                                                        <label>Products Compare Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>3</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_compare>
+                                                <punch_header translate="label">
+                                                        <label>Header Welcome Message</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>4</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_header>
+                                                <punch_links translate="label">
+                                                        <label>Top Links</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>5</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_links>
+                                                <punch_poll translate="label">
+                                                        <label>Poll Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>6</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_poll>
+                                                <punch_messages translate="label">
+                                                        <label>Messages</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>11</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+				                        <show_in_store>1</show_in_store>
+                                                </punch_messages>
+                                                <punch_notices translate="label">
+                                                        <label>Notices</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>11</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+				                        <show_in_store>1</show_in_store>
+                                                </punch_notices>
+                                                <punch_reorder translate="label">
+                                                        <label>Reorder Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>12</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_reorder>
+                                                <punch_viewed translate="label">
+                                                        <label>Products Recently Viewed</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>5</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_viewed>
+                                                <punch_compared translate="label">
+                                                        <label>Comparison Report Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>6</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_compared>
+                                                <punch_wishlist translate="label">
+                                                        <label>Wishlist Sidebar</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>7</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_wishlist>
+                                                <punch_currency translate="label">
+                                                        <label>Currency System</label>
+							<comment>All pages will be cached with the base prices, which will be converted to the selected currency after the page is loaded. Use carefully.</comment>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>ezzoom/system_config_backend_punch</source_model>
+                                                        <sort_order>15</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </punch_currency>
+					</fields>
+				</holepunch>
+                                <debug translate="label">
+                                        <label>Debug Settings</label>
+                                        <frontend_type>text</frontend_type>
+                                        <sort_order>60</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+                                        <fields>
+                                                <ajax_debug translate="label">
+                                                        <label>Output Ajax Exceptions</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>0</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </ajax_debug>
+                                                <hole_punch_profile translate="label">
+                                                        <label>Profile Entry Points</label>
+                                                        <frontend_type>select</frontend_type>
+                                                        <source_model>adminhtml/system_config_source_yesno</source_model>
+                                                        <sort_order>3</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </hole_punch_profile>
+                                                <header_string_include translate="label">
+                                                        <label>Append to Cached Pages</label>
+							<comment>Accepts "%SYSTIME%", "%GENTIME%", "%FILE%" variables</comment>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>4</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </header_string_include>
+					</fields>
+				</debug>
+                                <ezzoomlink>
+                                        <label>Link to us</label>
+                                        <frontend_type>text</frontend_type>
+                                        <sort_order>70</sort_order>
+                                        <show_in_default>1</show_in_default>
+                                        <show_in_website>1</show_in_website>
+                                        <show_in_store>1</show_in_store>
+                                        <fields>
+                                                <addlink translate="label">
+                                                        <label>Add link to EZAPPS</label>
+							<comment>Like our product? Show support!</comment>
+                                                        <frontend_type>select</frontend_type>
+							<source_model>ezzoom/system_config_backend_link</source_model>
+                                                        <sort_order>4</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </addlink>
+						<style translate="label">
+                                                        <label>CSS Style</label>
+                                                        <frontend_type>text</frontend_type>
+                                                        <sort_order>6</sort_order>
+                                                        <show_in_default>1</show_in_default>
+                                                        <show_in_website>1</show_in_website>
+                                                        <show_in_store>1</show_in_store>
+                                                </style>
+					</fields>
+				</ezzoomlink>
+			</groups>
+		</ezzoom_general>
+	</sections>
+</config>

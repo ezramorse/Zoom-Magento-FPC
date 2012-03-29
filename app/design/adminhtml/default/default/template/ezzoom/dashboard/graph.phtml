@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Adminhtml dashboard cache graph
+ *
+ * @category   Ezapps
+ * @package    Ezapps_Zoom
+ * @author     Ezra Morse (http://www.ezapps.ca)
+ * @license:   EPL 1.0
+ */
+
+?>
+<div style="margin:20px;">
+    <p class="switcher a-right" style="padding:5px 10px;"><?php $data = $this->getStatData(); echo "<b>Hits:</b> {$data['hits']} ({$data['hitp']}) &nbsp;/&nbsp; <b>Misses:</b> {$data['misses']} ({$data['misp']}) "; 
+?>
+    </p><br/>
+    <?php
+    $_containerStyle = "width:{$this->getWidth()}px;height:{$this->getHeight()}px; margin:0 auto;position:relative";
+    ?>
+    <?php if($this->getCount()): ?>
+    <p style="<?php echo $_containerStyle?>">
+	<span style="position:absolute;right:5px; bottom:5px;">
+	<a href="http://www.ezapps.ca"><img src="//www.ezapps.ca/media/ezapps_small_logo.png" border="0" /><br />
+	<img src="//www.ezapps.ca/media/zoom_small_logo.png" border="0" /></a>
+	</span>
+	<img src="<?php echo $this->getChartUrl(false) ?>" alt="chart" title="chart" /></p>
+    <?php else: ?>
+    <p class="a-center" style="<?php echo $_containerStyle?>"><?php echo $this->__('No Data Found') ?></p>
+    <?php endif; ?>
+</div>

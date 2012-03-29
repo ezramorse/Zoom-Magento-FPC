@@ -1,0 +1,106 @@
+<?php if ($this->displayFooter() == true || $this->getCurrencyConversion()) : ?>
+<?php
+
+/**
+ * Footer Ajax Controller
+ *
+ * @category   Ezapps
+ * @package    Ezapps_Zoom
+ * @author     Ezra Morse (http://www.ezapps.ca)
+ * @license:   EPL 1.0
+ */
+
+
+$state 		= $this->getAllData();
+$holes 		= $this->getHoles();
+$url 		= 'ezzoom/hole/fill';
+$url_currency   = 'ezzoom/hole/convert';
+$path           = $this->getPath();
+$domain           = $this->getDomain();
+
+?>
+<?php if (count($holes) > 0 || $this->getCurrencyConversion()) : ?>
+
+<?php echo $this->getAjaxPre() ?>
+
+<script type="text/javascript">
+//<![CDATA[
+
+document.observe("dom:loaded", function() {
+
+	new Ajax.Request('<?php echo $this->getUrl('', array('_secure'=> Mage::app()->getStore()->isCurrentlySecure())) . $url ?>', {
+		method: 'post',
+		parameters: {ajax: true,
+			     id:    '<?php echo $this->getPageTag() ?>',
+			     key:   '<?php echo $this->getFileTag() ?>',
+			     holes: '<?php echo $state ?>'
+		},
+		onComplete: function(transport, json) {
+			var json = transport.responseText.evalJSON();
+
+                        for(var i=0;i<json.fill.length;i++){
+                          var obj = json.fill[i];
+                           $('ezzoom-'+obj.block).update(obj.data);
+                        }
+
+                        if (json.conversionRate) 
+				convertFromJson(json);
+		}
+	});
+});
+
+//]]>
+</script>
+
+<?php echo $this->getAjaxPost() ?>
+
+<?php endif; ?>
+
+<?php if ($this->getCurrencyConversion()) : ?>
+
+<?php echo $this->getAjaxPreCurrency() ?>
+
+<script type="text/javascript">
+//<![CDATA[
+
+document.observe("dom:loaded", function() {
+
+	var json = '<?php echo  $this->getCurrencyJson()  ?>';
+	
+	json = json.evalJSON(true);
+
+	if (json.conversionRate)
+                       convertFromJson(json);
+
+});
+
+//]]>
+</script>
+
+<?php echo $this->getAjaxPostCurrency() ?>
+<?php endif; ?>
+
+
+<?php if (!Mage::getSingleton('catalog/session')->getParamsMemorizeDisabled() && 
+	 (is_object(Mage::getSingleton('core/layout')->getBlock("product_list_toolbar")) || Mage::registry('current_category') && !Mage::registry('current_product'))) : ?>
+<?php $cookies = $this->getCookieToSet(); ?>
+
+<script type="text/javascript">
+//<![CDATA[
+
+document.observe("dom:loaded", function() { 
+
+	Mage.Cookies.path     = '<?php echo $path; ?>';
+	Mage.Cookies.domain   = <?php echo ($domain != '' ? "'$domain'" : "null" ) ?>;
+
+<?php foreach ($cookies as $key => $cookie) : ?>
+        Mage.Cookies.set('<?php echo $key ?>', '<?php echo $cookie ?>');
+<?php endforeach; ?>
+});
+
+//]]>
+</script>
+<?php endif; ?>
+
+<?php endif; ?>
+<?php echo $this->getEzappsLink(); ?>

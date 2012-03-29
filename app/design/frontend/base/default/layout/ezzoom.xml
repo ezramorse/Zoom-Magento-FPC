@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (c) Ezra Morse (http://www.ezapps.ca)
+ * @license:   EPL 1.0
+ */
+
+-->
+<layout version="0.1.0">
+
+<!--
+Default layout, loads most of the pages
+-->
+    <default>
+	<reference name="head">
+		<action method="addJs"><script>ezapps/ezzoom.js</script></action>
+	</reference>
+        <reference name="before_body_end">
+		<block type="ezzoom/ajax_footer" name="ezzoom_ajax_footer" template="ezzoom/ajax/footer.phtml"/>
+	</reference>
+   </default>
+
+   <ezzoom_hole_fill>
+
+        <!-- Remove all <default> blocks that are not holes, or containers of holes (like left, right, header, etc). -->
+	<!-- Until this is done, your hole-punching will load your full default layout, creating more overhead -->
+	<!-- <remove name="head" />
+	<remove name="content" />
+	<remove name="before_body_end" />
+	<remove name="before_head_end" />
+	<remove name="footer" />
+	<remove name="paypal.partner.top_cart.shortcut" />
+        <remove name="paypal.partner.cart_sidebar.shortcut" />
+        <remove name="google_analytics" />
+        <remove name="paypaluk.partner.top_cart.shortcut" />
+        <remove name="paypaluk.partner.cart_sidebar.shortcut" />
+        <remove name="head_rss" />
+	<remove name="core_profiler" />
+	<remove name="tags_popular" />
+	<remove name="left.newsletter" />
+	<remove name="return_link" />
+	<remove name="breadcrumbs" />
+	<remove name="store_language" />
+	<remove name="nav.top" />
+	<remove name="top.menu" />
+	<remove name="top.search" />
+	<remove name="formkey" />
+	<remove name="after_body_start" />
+	<remove name="social-networking" />
+	<remove name="catalog.vertnav" />
+	<remove name="catalog.leftnav" />
+	<remove name="paypal.partner.right.logo" /> -->
+   </ezzoom_hole_fill>
+
+
+    <!-- This hole is not in the default block. Read below for more information. You can also add all these blocks to <ezzoom_hole_fill> -->
+    <ezzoom_catalog_category_layered_nochildren>
+        <remove name="right.reports.product.viewed" />
+        <block type="reports/product_viewed" before="right.permanent.callout" name="left.reports.product.viewed" template="reports/product_viewed.phtml" />
+    </ezzoom_catalog_category_layered_nochildren>
+
+    <ezzoom_catalog_category_default>
+        <reference name="left">
+            <block type="directory/currency" name="currency" before="catalog.leftnav" template="directory/currency.phtml"/>
+        </reference>
+    </ezzoom_catalog_category_default>
+
+    <ezzoom_catalog_category_layered>
+        <reference name="left">
+            <block type="directory/currency" name="currency" before="catalog.leftnav" template="directory/currency.phtml"/>
+        </reference>
+    </ezzoom_catalog_category_layered>
+
+   <!--
+   ** If a block cannot be located, it is likely not part of the <default> handle. 
+   ** You must add additional handles to load these blocks for the appropriate pages.
+   **
+   ** For example, if you want the block "catalog.product.related" to be available for
+   ** the <catalog_product_view>, a handle called <ezzoom_catalog_product_view> must be
+   ** created. In this handle, the block information must match the original <catalog_product_view> 	
+   **
+   ** <ezzoom_catalog_product_view>
+   **	<reference name="right">
+   **       <block type="catalog/product_list_related" name="catalog.product.related" before="-" template="catalog/product/list/related.phtml"/>
+   **   </reference>
+   ** </ezzoom_catalog_product_view>
+   **
+   ** All of the original page handle names are passed into the hole filler, but they are 
+   ** loaded with a prefix of "ezzoom_". This prevents category and page handles from
+   ** being loaded unless they are specifically created here.
+   **
+   ** Because category handles require a registered category, their loading will result in 
+   ** a fatal error (unless we load the category as well). In order to decrease server load,
+   ** we strive to only load the blocks/models that are required on each specific page.
+   **
+   ** In many cases, the <default> handle should be sufficient to fill in most holes. 
+   **-->
+
+</layout>

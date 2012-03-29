@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ezapps_Zoom>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ezapps_Zoom>
+    </modules>
+</config>

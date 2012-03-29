@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ezapps_Tools>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ezapps_Tools>
+    </modules>
+</config>

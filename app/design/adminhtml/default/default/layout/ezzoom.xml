@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <ezzoom_adminhtml_ezzoom_index>
+        <reference name="content">
+            <block type="ezzoom/adminhtml_page" name="ezzoom" />
+        </reference>
+    </ezzoom_adminhtml_ezzoom_index>
+</layout>
