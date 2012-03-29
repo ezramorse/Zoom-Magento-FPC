@@ -3,8 +3,9 @@
  * Zoom 0.1.0 Installer
  *
  * @author      Ezra Morse (http://www.ezapps.ca)
- * @license:   EPL 1.0
+ * @license:    EPL 1.0
  */
+
 
 $installer = $this;
 
@@ -12,7 +13,7 @@ $installer->startSetup();
 
 $installer->run("
 
-CREATE TABLE IF NOT EXISTS `ezapps_zoom_page` (
+CREATE TABLE IF NOT EXISTS `{$this->getTable('ezapps_zoom_page')}` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `server` varchar(128) NOT NULL,
   `uri` varchar(255) NOT NULL,
