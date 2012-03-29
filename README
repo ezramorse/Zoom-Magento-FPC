@@ -1,0 +1,41 @@
+ * EZAPPS Zoom Full-Page Cache for Magento
+ *
+ * @category   Ezapps
+ * @package    Ezapps_Zoom
+ * @author     Ezra Morse (http://www.ezapps.ca/)
+ * @contact    Ezra Morse <ezapps.software@gmail.com>
+ * @license:   EPL 1.0. (Please credit the original author in all derivatives and release core fixes to the public)
+
+
+Installation:
+============================================
+
+1.  Create a backup of your Magento store. If possible, install in a testing environment before porting the code live. 
+
+    Please contact <ezapps.software@gmail.com> if you need professional help installing Zoom
+
+2.  Unpack source code (or use Magento Connect and skip to step 4)
+
+3.  Goto the new ezzoom directory and copy the source to the root of your testing environment
+
+4.  Clear your Magento cache
+
+5.  Re-login to the Magento backend
+
+6.  Edit index.php. After the <?php tag, insert: include('ezzoom.php');
+
+7.  Edit app/design/frontend/base/default/layout/ezzoom.xml. Remove all unneeded blocks from ezzoom_hole_fill handle.
+
+    Removing blocks referenced by other active blocks can cause exceptions. Proceed with caution.
+
+8.  Please ensure the directory var/zoom is writable
+
+9.  If you use our category URL rewrites, adjust your robots.txt file to exclude any redundant URLs
+
+10. Specify default fill HTML in ezzoom.php
+
+
+Advanced Setup (NGINX/Expanding/Conflicts):
+============================================
+
+http://journal.ezapps.ca/search/label/tutorials
