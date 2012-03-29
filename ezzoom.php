@@ -262,7 +262,7 @@ class Ezapps_Zoom_Handler
 
 					Mage::helper('ezzoom')->generateClientRewrites();
 
-				} else if (Mage::helper('ezzoom')->getCacheMatch() == true && Mage::helper('ezzoom')->matchedPage() == true) {
+				} else if (Mage::helper('ezzoom')->matchedPage() == true) {
 
                                         $start  = self::$TAG_START_CURRENCY;
                                         $end    = self::$TAG_END_CURRENCY;

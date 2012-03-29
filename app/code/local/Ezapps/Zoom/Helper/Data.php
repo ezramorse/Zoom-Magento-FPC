@@ -28,8 +28,8 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 	private $_zoom_handler_backup	= null;
 	private $_helper_toolbar	= null;
 	private $_helper_toolbar_state	= null;
-	private $_cache_match		= null;
-	private $_tool_bar_finder	= null;
+	private $_cache_match		= true;
+	private $_tool_bar_finder	= true;
 
 	public function getCurrencyInfo() {
 
