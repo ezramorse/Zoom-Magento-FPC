@@ -315,13 +315,12 @@ class Ezapps_Zoom_Handler
 
 $zoom_controller = Ezapps_Zoom_Handler::getInstance();
 
-
 if (!(array_key_exists('___store', $_GET) && array_key_exists('___from_store', $_GET))) {
 	if (!(array_key_exists('is_ajax', $_GET) || array_key_exists('ajax', $_GET) || array_key_exists('is_ajax', $_POST) || array_key_exists('ajax', $_POST))) {
 
-		$zoom_controller::tryRetrieveCacheFile();
+		$zoom_controller->tryRetrieveCacheFile();
 
-		$zoom_controller::startBuffer();
+		$zoom_controller->startBuffer();
 	} 
 }
 
