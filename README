@@ -33,9 +33,6 @@ Installation:
 
 9.  If you use our category URL rewrites, adjust your robots.txt file to exclude any redundant URLs
 
-10. Specify default fill HTML in ezzoom.php
-
-
 Advanced Setup (NGINX/Expanding/Conflicts):
 ============================================
 
