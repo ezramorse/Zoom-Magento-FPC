@@ -49,7 +49,8 @@ class Ezapps_Zoom_Handler
 		self::$AGENT       = (in_array("HTTP_USER_AGENT", $_SERVER) ? $_SERVER["HTTP_USER_AGENT"] : '');
 		self::$_start      = microtime(true);
 		self::$GET_POSTFIX = str_replace('/', self::DS, self::$GET_URI_MARK);
-		self::$STORE	   = (array_key_exists('store', $_COOKIE) ? $_COOKIE['store'] : $_SERVER['MAGE_RUN_CODE']);
+                self::$STORE       = (array_key_exists('store', $_COOKIE) ? $_COOKIE['store'] :
+                                     (array_key_exists('MAGE_RUN_CODE', $_SERVER) ? $_SERVER['MAGE_RUN_CODE'] : ''));
 		if (self::$STORE == '')
 			self::$STORE = 'default';
 
