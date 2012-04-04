@@ -57,9 +57,9 @@ class Ezapps_Zoom_Handler
 		$url = parse_url(self::$REQUEST);
 		$test = explode("/", $url['path']);
 		if ($test[(count($test) - 1)] == "")
-			self::$base_uri = $url['path'] . self::$ZOOM_INDEX;
+			self::$base_uri = str_replace('/', self::DS, $url['path'] . self::$ZOOM_INDEX);
 		else
-			self::$base_uri = $url['path'];
+			self::$base_uri = str_replace('/', self::DS, $url['path']);
 
 		// Customize for stores if default fill is desired
 		/*self::$DEFAULT_FILL['default']['links'] = '<ul class="links">' .

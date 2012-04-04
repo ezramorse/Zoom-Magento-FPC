@@ -857,6 +857,10 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 			if ($path[0] == '')
 				array_shift($path);
 
+                        // Windows drive path fix
+                        if (strstr($path[0], ':'))
+                                $path_finished .= array_shift($path);
+
                 	foreach ($path as $directory) {
                         	if (!file_exists($path_finished . DS . $directory)) {
                                 	mkdir($path_finished . DS . $directory);
