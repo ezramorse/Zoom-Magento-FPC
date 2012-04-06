@@ -45,7 +45,7 @@ class Ezapps_Zoom_Block_Ajax_Footer extends Mage_Core_Block_Template
 	$result['handles'] = Mage::getSingleton('core/layout')->getUpdate()->getHandles();
 	$result['control'] = $toolbar['control'];
 	if ($this->getProduct())
-		$result['pid'] = $this->getId();
+		$result['pid'] = $this->getProduct()->getId();
 
 	return Mage::helper('ezzoom')->compress(json_encode($result));
 
