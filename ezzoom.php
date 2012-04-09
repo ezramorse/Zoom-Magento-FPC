@@ -58,8 +58,12 @@ class Ezapps_Zoom_Handler
 		$test = explode("/", $url['path']);
 		if ($test[(count($test) - 1)] == "")
 			self::$base_uri = str_replace('/', self::DS, $url['path'] . self::$ZOOM_INDEX);
+		else if (!strstr($test[(count($test)-1)], '.'))
+			self::$base_uri = str_replace('/', self::DS, $url['path'] . '/' . self::$ZOOM_INDEX);
 		else
 			self::$base_uri = str_replace('/', self::DS, $url['path']);
+
+
 
 		// Customize for stores if default fill is desired
 		/*self::$DEFAULT_FILL['default']['links'] = '<ul class="links">' .
@@ -118,6 +122,7 @@ class Ezapps_Zoom_Handler
 
 		if (array_key_exists(1, $test_for_rewrites)) {
 			self::$base_uri         = $test_for_rewrites[0];
+
 			$_SERVER["REQUEST_URI"] = $test_for_rewrites[0];
 			$args = explode("/", $test_for_rewrites[1]);
 			for ($i = 0; $i < count($args); $i=$i+2)
@@ -317,7 +322,7 @@ class Ezapps_Zoom_Handler
 $zoom_controller = Ezapps_Zoom_Handler::getInstance();
 
 if (!(array_key_exists('___store', $_GET) && array_key_exists('___from_store', $_GET))) {
-	if (!(array_key_exists('is_ajax', $_GET) || array_key_exists('ajax', $_GET) || array_key_exists('is_ajax', $_POST) || array_key_exists('ajax', $_POST))) {
+	if (!(array_key_exists('isAjax', $_GET) || array_key_exists('ajax', $_GET) || array_key_exists('isAjax', $_POST) || array_key_exists('ajax', $_POST))) {
 
 		$zoom_controller->tryRetrieveCacheFile();
 

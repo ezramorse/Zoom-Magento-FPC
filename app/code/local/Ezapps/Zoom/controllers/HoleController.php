@@ -20,9 +20,15 @@ class Ezapps_Zoom_HoleController extends Mage_Core_Controller_Front_Action
 
         public function fillAction() {
 
+		$data = json_decode(Mage::helper('ezzoom')->decompress($this->getRequest()->getParam('holes')), true);
+
 		$session = Mage::getSingleton('customer/session');
 
-		$data = json_decode(Mage::helper('ezzoom')->decompress($this->getRequest()->getParam('holes')), true);
+		if (trim($data['url']) != '') {
+			$session->setLastEzzoomUrl($data['url']);
+			$_SERVER['REQUEST_URI'] = $data['url'];
+
+		}
 
 		$page = Mage::getModel('ezzoom/page')->load($this->getRequest()->getParam('id'));
 
@@ -48,9 +54,6 @@ class Ezapps_Zoom_HoleController extends Mage_Core_Controller_Front_Action
 		}
 
 		$result = Mage::helper('ezzoom')->getCurrencyInfo();
-
-		if (trim($data['url']) != '')
-			$session->setLastEzzoomUrl($data['url']);
 
 		$hole_filling = array();
 

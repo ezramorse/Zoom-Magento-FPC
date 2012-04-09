@@ -29,7 +29,7 @@ $domain           = $this->getDomain();
 document.observe("dom:loaded", function() {
 
 	new Ajax.JSONRequest('<?php echo $this->getUrl('', array('_secure'=> true)) . $url ?>', {
-		parameters: {ajax: true,
+		parameters: {isAjax: true,
 			     id:    '<?php echo $this->getPageTag() ?>',
 			     key:   '<?php echo $this->getFileTag() ?>',
 			     holes: '<?php echo $state ?>'

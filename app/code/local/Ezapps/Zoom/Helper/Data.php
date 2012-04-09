@@ -692,7 +692,7 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 
 	public function saveFile($file_name, $data, $straight_save = false) {
 
-		$root = Mage::getBaseDir() . DS . $this->getVarFromEzoomHandler('ZOOM_ROOT');
+		$root = $this->getVarFromEzoomHandler('ZOOM_ROOT');
 
 		if ($straight_save != false) {
 
@@ -852,14 +852,10 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 			if ($real_file_name == '')
 				$real_file_name = $this->getVarFromEzoomHandler('ZOOM_INDEX');
 
-        	        $path_finished = "";
+        	        $path_finished = Mage::getBaseDir();
 
 			if ($path[0] == '')
 				array_shift($path);
-
-                        // Windows drive path fix
-                        if (strstr($path[0], ':'))
-                                $path_finished .= array_shift($path);
 
                 	foreach ($path as $directory) {
                         	if (!file_exists($path_finished . DS . $directory)) {
@@ -868,7 +864,7 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
                                	$path_finished .= DS . $directory;
         	        }
 
-	                return $path_finished . DS . $real_file_name;
+	                return str_replace(DS . DS, DS, $path_finished . DS . $real_file_name);
 
 	}		
 }
