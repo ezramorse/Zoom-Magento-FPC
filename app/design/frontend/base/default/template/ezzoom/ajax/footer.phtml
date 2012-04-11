@@ -23,9 +23,9 @@ $domain           = $this->getDomain();
 
 <?php echo $this->getAjaxPre() ?>
 
-<script type="text/javascript">
-//<![CDATA[
-
+<script type="text/javascript"> 
+//<![CDATA[ 
+ 
 document.observe("dom:loaded", function() {
 
 	new Ajax.JSONRequest('<?php echo $this->getUrl('', array('_secure'=> true)) . $url ?>', {
@@ -47,8 +47,8 @@ document.observe("dom:loaded", function() {
 		}
 	});
 });
-
-//]]>
+ 
+//]]> 
 </script>
 
 <?php echo $this->getAjaxPost() ?>
@@ -59,9 +59,9 @@ document.observe("dom:loaded", function() {
 
 <?php echo $this->getAjaxPreCurrency() ?>
 
-<script type="text/javascript">
-//<![CDATA[
-
+<script type="text/javascript"> 
+//<![CDATA[ 
+ 
 document.observe("dom:loaded", function() {
 
 	var json = '<?php echo  $this->getCurrencyJson()  ?>';
@@ -72,8 +72,8 @@ document.observe("dom:loaded", function() {
                        convertFromJson(json);
 
 });
-
-//]]>
+ 
+//]]> 
 </script>
 
 <?php echo $this->getAjaxPostCurrency() ?>
@@ -84,9 +84,9 @@ document.observe("dom:loaded", function() {
 	 (is_object(Mage::getSingleton('core/layout')->getBlock("product_list_toolbar")) || Mage::registry('current_category') && !Mage::registry('current_product'))) : ?>
 <?php $cookies = $this->getCookieToSet(); ?>
 
-<script type="text/javascript">
-//<![CDATA[
-
+<script type="text/javascript"> 
+//<![CDATA[ 
+ 
 document.observe("dom:loaded", function() { 
 
 	Mage.Cookies.path     = '<?php echo $path; ?>';
@@ -96,8 +96,8 @@ document.observe("dom:loaded", function() {
         Mage.Cookies.set('<?php echo $key ?>', '<?php echo $cookie ?>');
 <?php endforeach; ?>
 });
-
-//]]>
+ 
+//]]> 
 </script>
 <?php endif; ?>
 
