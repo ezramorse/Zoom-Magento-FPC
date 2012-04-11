@@ -696,11 +696,11 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 
 		if ($straight_save != false) {
 
-			$this->createPathToFile($root . DS . $file_name, array(), false);
+			$this->_file_name = $this->createPathToFile($root . DS . $file_name, array(), false);
 
-			file_put_contents($root . DS . $file_name, $data);
+                        file_put_contents($this->_file_name, $data);
 
-			return null;			
+                        return $this->_file_name;
 
 		}
 
