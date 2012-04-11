@@ -24,11 +24,13 @@ class Ezapps_Zoom_HoleController extends Mage_Core_Controller_Front_Action
 
 		$session = Mage::getSingleton('customer/session');
 
-		if (trim($data['url']) != '') {
-			$session->setLastEzzoomUrl($data['url']);
-			$_SERVER['REQUEST_URI'] = $data['url'];
-
-		}
+                if (trim($data['url']) != '') {
+                        $session->setLastEzzoomUrl($data['url']);
+                        $url = parse_url($data['url']);
+                        $_SERVER['HTTPS'] = ($url['scheme'] == 'https' ? 'on' : 'off');
+                        $_SERVER['HTTP_HOST'] = $url['host'];
+                        $_SERVER['REQUEST_URI'] = $url['path'];
+                }
 
 		$page = Mage::getModel('ezzoom/page')->load($this->getRequest()->getParam('id'));
 
