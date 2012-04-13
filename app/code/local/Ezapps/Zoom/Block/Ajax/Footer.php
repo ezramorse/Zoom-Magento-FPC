@@ -59,11 +59,12 @@ class Ezapps_Zoom_Block_Ajax_Footer extends Mage_Core_Block_Template
 	
     public function getCacheKeyInfo() {
 
-	$str = Mage::getSingleton('core/layout')->getMessagesBlock()->getCacheKeyInfo();
-	if ($str != '' && !is_array($str)) {
-		return unserialize(Mage::getSingleton('core/layout')->getMessagesBlock()->getCacheKeyInfo());
-	} else 
-		return array('storage_types'=> array( 'core/session', 'customer/session', 'catalog/session' ));
+        $str = Mage::getSingleton('core/layout')->getMessagesBlock()->getCacheKeyInfo();
+        if (is_array($str) && array_key_exists('storage_types', $str)) {
+                return array('storage_types'=> unserialize($str['storage_types']));
+
+        } else
+                return array('storage_types'=> array( 'core/session', 'customer/session', 'catalog/session', 'checkout/session' ));
 
     }
 
