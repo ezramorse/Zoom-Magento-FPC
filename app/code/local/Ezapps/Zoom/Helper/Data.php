@@ -613,7 +613,14 @@ class Ezapps_Zoom_Helper_Data extends Mage_Core_Helper_Abstract
 				$this->_rewrite_package  = $this->regexMatchUserAgent($package_check);
 				$this->_rewrite_template = $this->regexMatchUserAgent($template_check);
 				$this->_rewrite_theme    = $this->regexMatchUserAgent($theme_check);
-			}			
+			}
+
+			// Invalidate if error/success messages
+			if ($this->_matched_page == true) {
+				if (Mage::getSingleton('core/session')->getMessages())
+					$this->_matched_page = false;
+			}
+
 
 		} 
 
