@@ -125,7 +125,7 @@ class Ezapps_Zoom_Handler
 
 			$_SERVER["REQUEST_URI"] = $test_for_rewrites[0];
 			$args = explode("/", $test_for_rewrites[1]);
-			for ($i = 0; $i < count($args); $i=$i+2)
+			for ($i = 0; $i < count($args)-1; $i=$i+2)
 				$_GET[$args[$i]] = $args[$i+1]; 
 		}
 
