@@ -1,10 +1,17 @@
+##############################################################################################
+I have long stopped supporting this obviously. This was a proof of concept, of how to
+create regex parseable 'holes', save a cache to a structure NGINX can find with simple logic,
+and then fill in the holes with AJAX on the client side. I hope someone can continue to
+improve on the concept, which can be applied to nearly any web application that needs 'help'.
+###############################################################################################
+
  * EZAPPS Zoom Full-Page Cache for Magento
  *
  * @category		Ezapps
  * @package		Ezapps_Zoom
- * @author		Ezra Morse (http://www.ezapps.ca/)
- * @contact		Ezra Morse <ezapps.software@gmail.com>
- * @donate		Paypal: ezapps.software@gmail.com
+ * @author		Ezra Morse (http://www.ezramorse.com/)
+ * @contact		Ezra Morse <me@ezramorse.com>
+ * @donate		Paypal: me@ezramorse.com
  * @license		EPL 1.0 (http://www.eclipse.org/legal/epl-v10.html) 
  * @instructions	Please credit the original author in all derivatives and release core fixes to the public
 
@@ -13,8 +20,6 @@ Installation:
 ============================================
 
 1.  Create a backup of your Magento store. If possible, install in a testing environment before porting the code live. 
-
-    Please contact <ezapps.software@gmail.com> if you need professional help installing Zoom
 
 2.  Unpack source code (or use Magento Connect and skip to step 4)
 
@@ -33,16 +38,3 @@ Installation:
 8.  Please ensure the directory var/zoom is writable
 
 9.  If you use our category URL rewrites, adjust your robots.txt file to exclude any redundant URLs
-
-10. And, if you like Zoom:
-	
-	a) Tell your friends
-
-	b) Become a collaborator
-
-	c) Support the developer with Paypal: ezapps.software@gmail.com
-
-Advanced Setup (NGINX/Expanding/Conflicts):
-============================================
-
-http://journal.ezapps.ca/search/label/tutorials
