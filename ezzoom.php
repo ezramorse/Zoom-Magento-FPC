@@ -214,7 +214,7 @@ class Ezapps_Zoom_Handler
 
 			if ($gzip && file_exists($attempt . ".gz")) 
         			$page = file_get_contents($attempt . ".gz");
-			else if (file_exists($attempt))
+			else if (file_exists($attempt) && !is_dir($attempt))
         			$page = file_get_contents($attempt);
 
 			if ($page != false)
