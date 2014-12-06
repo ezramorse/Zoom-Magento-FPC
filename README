@@ -1,9 +1,11 @@
-##############################################################################################
-I have long stopped supporting this obviously. This was a proof of concept, of how to
-create regex parseable 'holes', save a cache to a structure NGINX can find with simple logic,
-and then fill in the holes with AJAX on the client side. I hope someone can continue to
-improve on the concept, which can be applied to nearly any web application that needs 'help'.
-###############################################################################################
+#############################################################################
+I have long stopped supporting this obviously. This was a proof of concept: 
+create regex parseable 'holes', save a cache to a structure NGINX can find 
+with simple logic, then fill in the holes with AJAX on the client side.
+I hope someone can continue to improve on the concept, which can be 
+applied to nearly any web application that needs 'help'.
+#############################################################################
+
 
  * EZAPPS Zoom Full-Page Cache for Magento
  *
